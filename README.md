@@ -1,3 +1,6 @@
+
+# Linux-Process-API-fork-wait-exec-
+Ex02-Linux Process API-fork(), wait(), exec()
 # Ex02-OS-Linux-Process API - fork(), wait(), exec()
 Operating systems Lab exercise
 
@@ -22,7 +25,6 @@ Test the C Program for the desired output.
 # PROGRAM:
 
 ## C Program to print process ID and parent Process ID using Linux API system calls
-
 ```
 #include <stdio.h>
 #include <sys/types.h>
@@ -42,29 +44,16 @@ int main(void)
 	printf("The process id: %d\n",process_id);
 	printf("The process id of parent function: %d\n",p_process_id);
 	return 0; }
-```
-
-
-
-## Output :
-```
-$ ./pidcheck.o 
-The process id: 6919
-The process id of parent function: 6860
-
-
-$ ps 
-    PID TTY          TIME CMD
-   6860 pts/0    00:00:00 bash
-   6924 pts/0    00:00:00 ps
-
-
 
 ```
-
+## OUTPUT
+```
+localhost:~# ./a.out
+The process id: 97
+The process id of parent function: 61
+```
 
 ## C Program to create new process using Linux API system calls fork() and exit()
-
 
 ```
 #include <stdio.h>
@@ -81,27 +70,16 @@ printf("I am parent, my pid is %d\n",getpid());
 sleep(100); 
 exit(0);} 
 }
+```
+## OUTPUT
 
 ```
-
-## OUTPUT:
+localhost:~# ./a.out
+I am parent, my pid is 108
+Iam child my pid is 109
+My parent pid is:108
 ```
-
-$ ./forkcheck.o 
-I am parent, my pid is 7029
-Iam child my pid is 7030
-My parent pid is:7029
-```
-
-
-
-
-
-
-
-
 ## C Program to execute Linux system commands using Linux API system calls exec() family
-
 ```
 #include <stdlib.h>
 #include <sys/wait.h>
@@ -125,14 +103,15 @@ printf("Running ps with execlp. Now with path specified\n");
                 puts("child did not exit successfully\n");
         printf("Done.\n");
         exit(0);}
-
 ```
 
-## OUTPUT:
+## OUTPUT
 ```
-
-$ ./execcheck2.o 
+localhost:~# ./a.out
 Running ps with execlp
 child exited with status of 0
+Done.
+Running ps with execlp. Now with path specified
 ```
-
+## RESULT:
+The programs are executed successfully.
